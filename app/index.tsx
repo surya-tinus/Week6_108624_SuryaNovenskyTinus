@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
-import CustomTextInput from "./CustomTextInput";
+import { CustomTextInput, NIMInput } from "./inputs"
 
 export default function Index() {
 
@@ -10,10 +10,17 @@ export default function Index() {
     setName(value);
   }
 
+  const [NIM, setNIM] = useState("")
+
+  const handleChangeMyNIM = (value: string) => {
+    setNIM(value);
+  }
+
   return (
     <View style={styles.container}>
-      <Text>{name} - 00000108624</Text>
+      <Text>{name} - {NIM}</Text>
       <CustomTextInput input={name} onChange={handleChangeMyName} />
+      <NIMInput input={NIM} onChange={handleChangeMyNIM}/>
     </View>
   );
 }
